@@ -1,3 +1,6 @@
+const express = require('express');
+const app = express();
+
 app.get('/getip', (req, res) => {
   const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173'); // Разрешаем запросы с http://localhost:5173
