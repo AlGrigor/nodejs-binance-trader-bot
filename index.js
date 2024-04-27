@@ -1,5 +1,7 @@
 
 const Binance = require('binance-api-node').default
+const express = require('express');
+const app = express();
 
 const client = Binance({
   apiKey: 'I84xXKo4lIgx65eW1bcs1gSkYCLirWk16p3pvIaIBOjvnYXtlNpYkmP6QHFAl62b',
@@ -19,4 +21,3 @@ async function getData() {
 }
 
 getData();
-
