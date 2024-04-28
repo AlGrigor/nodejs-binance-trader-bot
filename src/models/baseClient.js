@@ -1,6 +1,10 @@
 import Binance from 'node-binance-api';
 import binanceApiNode from 'binance-api-node';
 
+import { webSocketMethods } from './webSocketMethods';
+import { connectionMethods } from './connectionMethods';
+import { futuresMethods } from './futuresMethods';
+
 
 export class BinanceClient {
   constructor(apiKey, apiSecret) {
@@ -16,38 +20,30 @@ export class BinanceClient {
       });
       BinanceClient.instance = this;
     }
+    this.webSocketMethods = new webSocketMethods(this.nodeBinanceApiClient, this.binanceApiNodeClient);
+    this.connectionMethods = new connectionMethods(this.nodeBinanceApiClient, this.binanceApiNodeClient);
+    this.futuresMethods = new futuresMethods(this.nodeBinanceApiClient, this.binanceApiNodeClient);
 
     return BinanceClient.instance;
   }
 
+  //Connection Methods
+
   async ping(){
-    try {
-        const res = await this.binanceApiNodeClient.ping();
-        return res
-    } catch (error) {
-        console.error(error);
-      throw error;
-    }
+    return this.connectionMethods.ping();
   }
+
+
+  //Futures Methods
 
   async futuresTime(){
-    try {
-        const res = await this.nodeBinanceApiClient.futuresTime()
-        return res
-    } catch (error) {
-        console.error(error);
-      throw error;
-    }
+    return this.futuresMethods.futuresTime();
   }
 
-  wsCandles(symbol, interval, onData) {
-    symbol = symbol.toUpperCase();
-    try {
-      this.binanceApiNodeClient.ws.candles(symbol, interval, onData);
-    } catch (error) {
-      console.error(error);
-      throw error;
-    }
+  //WebSocket Methods
+
+  candles(symbol, interval, onData){
+    return this.webSocketMethods.candles(symbol, interval, onData)
   }
   
 }
