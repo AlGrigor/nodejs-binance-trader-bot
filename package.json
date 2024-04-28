@@ -1,15 +1,13 @@
 {
   "name": "nodejs-binance-trader-bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "The wrapper for Binance API",
   "main": "index.js",
   "scripts": {
     "serve": "babel-node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@babel/cli": "^7.24.1",
     "@babel/core": "^7.24.4",
@@ -20,5 +18,7 @@
     "express": "^4.19.2",
     "node-binance-api": "^0.13.1"
   },
-  "type": "commonjs"
+  "type": "commonjs",
+  "author": "Grigoren_com",
+  "license": "MIT"
 }

@@ -40,6 +40,14 @@ export class BinanceClient {
     }
   }
 
-
+  wsCandles(symbol, interval, onData) {
+    symbol = symbol.toUpperCase();
+    try {
+      this.binanceApiNodeClient.ws.candles(symbol, interval, onData);
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  }
   
 }
