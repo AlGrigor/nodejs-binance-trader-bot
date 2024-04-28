@@ -17,7 +17,8 @@
     "@babel/preset-env": "^7.24.4",
     "binance-api-node": "^0.12.7",
     "dotenv": "^16.4.5",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "node-binance-api": "^0.13.1"
   },
   "type": "commonjs"
 }
