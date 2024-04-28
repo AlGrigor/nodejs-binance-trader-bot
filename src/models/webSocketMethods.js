@@ -19,4 +19,15 @@ export class webSocketMethods {
       throw error;
     }
   }
+
+  async futuresUser() {
+    try {
+        const futuresUser = await this.binanceApiNodeClient.ws.futuresUser(msg => {
+            console.log(msg)
+          })
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  }
 }

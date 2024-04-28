@@ -2,4 +2,8 @@
 import { client } from "./src/initClient";
 
 
-client.futuresTime().then(res => console.log(res))
+//client.futuresMarketSell('BNBUSDT', '0.02').then(res => console.log(res))
+
+client.futureBalance().then(res => console.log(res))
+
+//client.futuresUser()
